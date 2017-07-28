@@ -41,7 +41,7 @@ class DriveAmplifier(Facade):
         dtype=bool,
         access=AttrWriteType.READ,
         display_level=DispLevel.OPERATOR,
-        property_name=" PLCAttName_VSWRA",
+        property_name="PLCAttName_VSWRA",
         description="Name of the PLC device attribute, corresponding to the "
                     "VSWR alarm of the amplifier.")
 
@@ -73,7 +73,7 @@ class DriveAmplifier(Facade):
         dtype=bool,
         access=AttrWriteType.READ,
         display_level=DispLevel.OPERATOR,
-        property_name=" PLCAttName_State",
+        property_name="PLCAttName_State",
         description="Name of the PLC device attribute, corresponding to the "
                     "forwarded power of the amplifier.")
 
@@ -94,12 +94,13 @@ class DriveAmplifier(Facade):
         """
         This attribute checks if any of the device alarms is on. If so,
         appropriate state and status are set for the device.
+
         :param temp: Temeprature_Alarm
         :param vswr: VSWR_Alarm
         :param psu: PSU_Status
         :param inter: Interlock
         :param amplstate: AmplifierState
-        :return: ALARM, if any or the alarms is seta
+        :return: ALARM, if any or the alarms is set
         :rtype: DevState
         """
         if temp or vswr or psu or inter or amplstate:
@@ -110,11 +111,10 @@ class DriveAmplifier(Facade):
     @proxy_command(
         dtype_out=bool,
         write_attribute=True,
-        property_name="PLCAttName_EnableTTL")
+        property_name="PLCAttName_EnableTTL",
+        doc_out="True to PLCAttName_EnableTTL")
     def EnableTtl(self, subcommand):
         """
-        write True to PLCAttName_EnableTTL
-        :return: True to PLCAttName_EnableTTL
         :rtype: bool
         """
         subcommand(1)
@@ -123,11 +123,10 @@ class DriveAmplifier(Facade):
     @proxy_command(
         dtype_out=bool,
         write_attribute=True,
-        property_name="PLCAttName_DisableTTL")
+        property_name="PLCAttName_DisableTTL",
+        doc_out="True to PLCAttName_DisableTTL")
     def DisableTtl(self, subcommand):
         """
-        write True to PLCAttName_DisableTTL
-        :return: True to PLCAttName_DisableTTL
         :rtype: bool
         """
         subcommand(1)
@@ -139,3 +138,4 @@ run = DriveAmplifier.run_server()
 
 if __name__ == '__main__':
     run()
+    
