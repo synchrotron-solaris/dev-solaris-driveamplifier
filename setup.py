@@ -1,7 +1,7 @@
 from setuptools import find_packages, setup
 
-from absorber_ds.version import __version__, licence
-from absorber_ds import __doc__, __author__, __author_email__
+from drive_amplifier_ds.version import __version__, licence
+from drive_amplifier_ds import __doc__, __author__, __author_email__
 
 setup(
     name='drive_amplifier',
