@@ -43,7 +43,7 @@ class DriveAmplifier(Facade):
         display_level=DispLevel.OPERATOR,
         property_name="PLCAttName_VSWRA",
         description="Name of the PLC device attribute, corresponding to the "
-                    "VSWR alarm of the amplifier.")
+                    "Voltage Standing Wave Ratio alarm of the amplifier.")
 
     PSU_Status = proxy_attribute(
         dtype=bool,
@@ -51,7 +51,7 @@ class DriveAmplifier(Facade):
         display_level=DispLevel.OPERATOR,
         property_name="PLCAttName_PSUS",
         description="Name of the PLC device attribute, corresponding to the "
-                    "PSU status of the amplifier.")
+                    "Power Supply Unit status of the amplifier.")
 
     Interlock = proxy_attribute(
         dtype=bool,
@@ -138,4 +138,3 @@ run = DriveAmplifier.run_server()
 
 if __name__ == '__main__':
     run()
-    
